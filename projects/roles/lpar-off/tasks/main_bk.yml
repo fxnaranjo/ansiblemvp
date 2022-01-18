@@ -1,0 +1,30 @@
+---
+# tasks file for roles/lpar
+
+
+- name: Include credentials for connecting to the HMC
+  include_vars:
+    file: credentials.yml
+
+- name: Get IP information
+  debug:
+    msg: The default IPv4 address of {{ ansible_fqdn }} is {{ ansible_default_ipv4.address }}
+
+- name: Run a script with arguments
+  ansible.builtin.script: 'fxn.sh {{item.lpar.name}} {{item.lpar.serial}}' 
+  register: mymotd
+  loop: '{{ vars[businessService] }}'
+
+  
+
+- name: Debug Messages
+  debug:
+    msg: '{{ my_message}} {{businessService}}  {{mymotd}}'
+
+#- name: Query HMC current build level
+  #ibm.power_hmc.hmc_update_upgrade:
+    #state: facts
+    #hmc_host: "{{ hmc_hostname }}"
+    #hmc_auth:
+      #username: '{{ hmc_user }}'
+      #password: '{{ hmc_password }}'

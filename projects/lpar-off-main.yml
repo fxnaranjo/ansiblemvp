@@ -1,0 +1,8 @@
+- hosts: all
+  name: Deactivate the designated group of partitions
+  become: no
+  gather_facts: no
+  vars_files:
+    - "./group_vars/services.yml"
+  roles:
+   - lpar-off

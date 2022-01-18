@@ -1,0 +1,9 @@
+#- hosts: ansible_control
+- hosts: all
+  name: Suspend Global Mirror Session
+  become: no
+  gather_facts: no
+  vars_files:
+    - "./group_vars/services.yml"
+  roles:
+   - sgm

@@ -1,0 +1,7 @@
+[hmcs]
+hmc1
+vhmc1
+vhmc2
+
+[hmcs:vars]
+ansible_user=hscroot

@@ -1,0 +1,36 @@
+{
+ "collection_info": {
+  "namespace": "ibm",
+  "name": "power_hmc",
+  "version": "1.4.0",
+  "authors": [
+   "Anil Vijayan (@AnilVijayan)",
+   "Navinakumar Kandakur (@nkandak1)"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "infrastructure",
+   "ibm",
+   "power",
+   "hmc"
+  ],
+  "description": "Ansible Content for IBM Power HMCs - to manage configurations of Power HMC and Power systems managed by the HMC.",
+  "license": [
+   "GPL-3.0-only"
+  ],
+  "license_file": null,
+  "dependencies": {},
+  "repository": "https://github.com/IBM/ansible-power-hmc",
+  "documentation": "https://ibm.github.io/ansible-power-hmc/index.html",
+  "homepage": "https://github.com/IBM",
+  "issues": "https://github.com/IBM/ansible-power-hmc/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "91472df2c26dddbddace4029fdb75c2c11201257ed8a2e46961b401dec9fb1ef",
+  "format": 1
+ },
+ "format": 1
+}

@@ -1,0 +1,41 @@
+---
+# tasks file for roles/lpar
+
+
+- name: Include credentials for connecting to the HMC
+  include_vars:
+    file: credentials.yml
+
+- name: Activating {{businessService}} LPARs in DCP
+  ansible.builtin.script: 'activateLPAR.sh {{item.lpar.name}} {{hmc_user}} {{hmc_hostname}} {{item.lpar.PRI_SYS}}' 
+  register: resultadodcp
+  loop: '{{ vars[businessService] }}'
+  when: centro_datos=='DCP'
+
+- name: Activating {{businessService}} LPARs in DCA
+  ansible.builtin.script: 'activateLPAR.sh {{item.lpar.name}} {{hmc_user}} {{hmc_hostname}} {{item.lpar.SEC_SYS}}' 
+  register: resultadodca
+  loop: '{{ vars[businessService] }}'
+  when: centro_datos=='DCA'
+
+- name: Clean loop output
+  set_fact:
+    clean_out: '{{ clean_out|default([]) + [item.stdout] }}'
+  with_items:
+    - '{{ resultadodcp.results }}'
+  no_log: True
+  when: centro_datos=='DCP'
+
+- name: Clean loop output
+  set_fact:
+    clean_out: '{{ clean_out|default([]) + [item.stdout] }}'
+  with_items:
+    - '{{ resultadodca.results }}'
+  no_log: True
+  when: centro_datos=='DCA'
+
+- name: Debug Messages
+  debug:
+    msg: '{{clean_out}}'
+
+  

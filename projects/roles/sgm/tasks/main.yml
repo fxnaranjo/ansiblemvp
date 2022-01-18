@@ -1,0 +1,20 @@
+---
+# tasks file for roles/sgm
+
+- name: Suspend Global Mirror
+  ansible.builtin.script: 'suspendGM.sh {{item.lpar.name}}' 
+  register: resultado
+  loop: '{{ vars[businessService] }}'
+
+
+- name: Clean loop output
+  set_fact:
+    clean_out: '{{ clean_out|default([]) + [item.stdout_lines[0]] }}'
+  with_items:
+    - '{{ resultado.results }}'
+  no_log: True
+  failed_when: item.stdout_lines[0]=='800'
+
+- name: Debug Messages
+  debug:
+    msg: '{{clean_out}}'
