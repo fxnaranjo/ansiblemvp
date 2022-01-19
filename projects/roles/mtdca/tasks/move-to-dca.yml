@@ -1,10 +1,7 @@
-- name: Include credentials for connecting to the HMC
-  include_vars:
-    file: credentials.yml
 
-
-- name: Shutting down {{item.lpar.name}} LPAR in DCA
+- name: Shutting down {{item.lpar.name}} LPAR in DCP
   ansible.builtin.script: 'shutdownLPAR.sh {{item.lpar.name}} {{hmc_user}} {{hmc_hostname}} {{item.lpar.PRI_SYS}}' 
+  register: resultado
 
 - name: Suspend Global Mirror {{item.lpar.name}}
   ansible.builtin.script: 'suspendGM.sh {{item.lpar.name}}'
@@ -12,7 +9,7 @@
 - name: Recover Global Mirror {{item.lpar.name}}
   ansible.builtin.script: 'recoverGM.sh {{item.lpar.name}}' 
 
-- name: Activating {{item.lpar.name}} LPAR in DCP
+- name: Activating {{item.lpar.name}} LPAR in DCA
   ansible.builtin.script: 'activateLPAR.sh {{item.lpar.name}} {{hmc_user}} {{hmc_hostname}} {{item.lpar.SEC_SYS}}'
 
 #- name: Debug Messages

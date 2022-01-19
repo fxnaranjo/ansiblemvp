@@ -1,9 +1,0 @@
----
-# tasks file for roles/test
-
-
-- name: move to DCA
-  include_tasks: move-dca.yml
-  loop: '{{ vars[businessService] }}'
-  loop_control:
-    loop_var: item

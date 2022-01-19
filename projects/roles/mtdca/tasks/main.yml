@@ -1,0 +1,12 @@
+---
+# tasks file for roles/mtdca
+
+- name: Include credentials for connecting to the HMC
+  include_vars:
+    file: credentials.yml
+
+- name: Move {{businessService}} Services to DCA
+  include_tasks: move-to-dca.yml
+  loop: '{{ vars[businessService] }}'
+  loop_control:
+    loop_var: item
