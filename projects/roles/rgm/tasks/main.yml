@@ -1,7 +1,7 @@
 ---
 # tasks file for roles/rgm
 
-- name: Suspend Global Mirror
+- name: Recover Global Mirror
   ansible.builtin.script: 'recoverGM.sh {{item.lpar.name}}' 
   register: resultado
   loop: '{{ vars[businessService] }}'

@@ -12,6 +12,7 @@ cp /home/fnaranjo/PROYECTOS/ALL/BcoPichincha/POWER2020-CMT/ansible-impl/projects
 cp /home/fnaranjo/PROYECTOS/ALL/BcoPichincha/POWER2020-CMT/ansible-impl/projects/lpar-on-main.yml /ansible/fxnproject
 cp /home/fnaranjo/PROYECTOS/ALL/BcoPichincha/POWER2020-CMT/ansible-impl/projects/csm-main-sgm.yml /ansible/fxnproject
 cp /home/fnaranjo/PROYECTOS/ALL/BcoPichincha/POWER2020-CMT/ansible-impl/projects/csm-main-rgm.yml /ansible/fxnproject
+cp /home/fnaranjo/PROYECTOS/ALL/BcoPichincha/POWER2020-CMT/ansible-impl/projects/single-loop.yml /ansible/fxnproject
 
 cp /home/fnaranjo/PROYECTOS/ALL/BcoPichincha/POWER2020-CMT/ansible-impl/projects/vault-pass /ansible/fxnproject
 
