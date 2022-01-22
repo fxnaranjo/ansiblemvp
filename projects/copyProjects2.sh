@@ -35,5 +35,8 @@ cd /
 
 git clone https://github.com/fxnaranjo/scripts.git
 
+chmod -R 774 /scripts
+chown -R awx:awx /scripts
+
 
 echo "DONE COPY PROJECT"
