@@ -30,9 +30,8 @@ chown -R awx:awx /ansible
 
 rm -fr /scripts
 
-mkdir -p /scripts
 
-cd /scripts
+cd /
 
 git clone https://github.com/fxnaranjo/scripts.git
 
