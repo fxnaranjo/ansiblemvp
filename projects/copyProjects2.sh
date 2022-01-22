@@ -8,7 +8,7 @@ rm -fr /root/ansible/*
 
 cd /root/ansible
 
-git clone fxnaranjo@gmail.com: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@https://github.com/fxnaranjo/ansiblemvp.git
+git clone https://github.com/fxnaranjo/ansiblemvp.git
 
 cp -R /root/ansible/ansiblemvp/projects/collections/ /ansible/dcaproject
 cp -R /root/ansible/projects/roles/ /ansible/dcaproject
@@ -34,7 +34,7 @@ mkdir -p /scripts
 
 cd /scripts
 
-git clone fxnaranjo@gmail.com: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@https://github.com/fxnaranjo/scripts.git
+git clone https://github.com/fxnaranjo/scripts.git
 
 
 echo "DONE COPY PROJECT"
