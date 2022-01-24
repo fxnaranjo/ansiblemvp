@@ -30,7 +30,7 @@ rm -fr /ansible/scripts
 
 cd /ansible
 
-git clone https://github.com/fxnaranjo/ansible-scripts.git
+git clone https://github.com/fxnaranjo/scripts.git
 
 
 chmod -R 774 /ansible
