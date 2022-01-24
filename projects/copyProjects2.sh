@@ -23,20 +23,20 @@ cp /root/ansible/ansiblemvp/projects/move-to-dca.yml /ansible/dcaproject
 cp /root/ansible/ansiblemvp/projects/vault-pass /ansible/dcaproject
 
 
-chmod -R 774 /ansible
-chown -R awx:awx /ansible
-
 #SCRIPTS PART
 
-rm -fr /scripts
+rm -fr /ansible/scripts
 
 
-cd /
+cd /ansible
 
 git clone https://github.com/fxnaranjo/ansible-scripts.git
 
 chmod -R 774 /ansible-scripts
 chown -R awx:awx /ansible-scripts
+
+chmod -R 774 /ansible
+chown -R awx:awx /ansible
 
 
 echo "DONE COPY PROJECT"
