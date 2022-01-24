@@ -32,8 +32,6 @@ cd /ansible
 
 git clone https://github.com/fxnaranjo/ansible-scripts.git
 
-chmod -R 774 /ansible-scripts
-chown -R awx:awx /ansible-scripts
 
 chmod -R 774 /ansible
 chown -R awx:awx /ansible
