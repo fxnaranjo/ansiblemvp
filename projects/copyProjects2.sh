@@ -33,10 +33,10 @@ rm -fr /scripts
 
 cd /
 
-git clone https://github.com/fxnaranjo/scripts.git
+git clone https://github.com/fxnaranjo/ansible-scripts.git
 
-chmod -R 774 /scripts
-chown -R awx:awx /scripts
+chmod -R 774 /ansible-scripts
+chown -R awx:awx /ansible-scripts
 
 
 echo "DONE COPY PROJECT"
