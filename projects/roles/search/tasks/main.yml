@@ -1,0 +1,48 @@
+---
+# tasks file for roles/sgm
+
+- name: Get Primary Server and LPAR
+  ansible.builtin.script: 'searchLPAR.sh {{item.lpar.name}} primary' 
+  register: resultado
+  loop: '{{ vars[businessService] }}'
+
+- name: Get Secondary Server
+  ansible.builtin.script: 'searchLPAR.sh {{item.lpar.name}} secondary' 
+  register: resultado2
+  loop: '{{ vars[businessService] }}'
+
+- name: Clean Primary Server and LPAR
+  set_fact:
+    clean_out: "{{ clean_out | default([]) + [{ 'LPARNAME' : item.item.lpar.name, 'PRI_SYS' : item.stdout_lines[0]}] }}"
+  with_items:
+    - '{{ resultado.results }}'
+  no_log: false
+
+
+- name: Clean Secondary Server
+  set_fact:
+    secondary: "{{ secondary | default([]) + [{ 'SEC_SYS' : item.stdout_lines[0]}] }}"
+  with_items:
+    - '{{ resultado2.results }}'
+  no_log: false
+
+
+- name: Add new key for LPARs
+  set_fact:
+   lpar: "{{ lpar | default([]) + [new_item] }}"
+  vars:
+   new_item: "{{ {'LPARNAME' : item.LPARNAME,'PRI_SYS': item.PRI_SYS,'SEC_SYS': secondary[my_idx].SEC_SYS }}}"
+  with_items:
+    - '{{ clean_out }}'
+  loop_control:
+    index_var: my_idx 
+  no_log: false
+
+
+- name: Set Server Names
+  set_stats:
+    data:
+      lpar_servers: "{{ lpar_servers | default([]) + [item] }}"
+  with_items: '{{lpar}}'
+  vars:
+    lpar_servers: []

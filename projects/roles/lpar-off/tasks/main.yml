@@ -7,15 +7,15 @@
     file: credentials.yml
 
 - name: Shutting down {{businessService}} LPARs in DCP
-  ansible.builtin.script: 'shutdownLPAR.sh {{item.lpar.name}} {{hmc_user}} {{hmc_hostname}} {{item.lpar.PRI_SYS}}' 
+  ansible.builtin.script: 'shutdownLPAR.sh {{item.LPARNAME}} {{hmc_user}} {{hmc_hostname}} {{item.PRI_SYS}}' 
   register: resultadodcp
-  loop: '{{ vars[businessService] }}'
+  loop: '{{ lpar_servers }}'
   when: centro_datos=='DCP'
 
 - name: Shutting down {{businessService}} LPARs in DCA
-  ansible.builtin.script: 'shutdownLPAR.sh {{item.lpar.name}} {{hmc_user}} {{hmc_hostname}} {{item.lpar.SEC_SYS}}' 
+  ansible.builtin.script: 'shutdownLPAR.sh {{item.LPARNAME}} {{hmc_user}} {{hmc_hostname}} {{item.SEC_SYS}}' 
   register: resultadodca
-  loop: '{{ vars[businessService] }}'
+  loop: '{{ lpar_servers }}'
   when: centro_datos=='DCA'
 
 - name: Clean loop output

@@ -9,39 +9,18 @@ hmc_hostname: 178.16.221.51
 bus:
 - lpar:
     name: bus01
-    serial: bus11111111
-    PRI_SYS: Server-9080-M9S-SN21A6E77-PROD2
-    SEC_SYS: Server-9080-M9S-SN21B8B27-CONT2
 - lpar:
     name: bus02
-    serial: bus22222222
-    PRI_SYS: Server-9080-M9S-SN21A6E77-PROD2
-    SEC_SYS: Server-9080-M9S-SN21B8B27-CONT2
 - lpar:
     name: bus03
-    serial: bus33333333
-    PRI_SYS: Server-9080-M9S-SN21A6E77-PROD2
-    SEC_SYS: Server-9080-M9S-SN21B8B27-CONT2
 
 
 odm:
 - lpar:
     name: odm01
-    serial: odm11111111
-    PRI_SYS: Server-9080-M9S-SN21A6E77-PROD2
-    SEC_SYS: Server-9080-M9S-SN21B8B27-CONT2
 - lpar:
     name: odm02
-    serial: odm22222222
-    PRI_SYS: Server-9080-M9S-SN21A6E77-PROD2
-    SEC_SYS: Server-9080-M9S-SN21B8B27-CONT2
 - lpar:
     name: odm03
-    serial: odm33333333
-    PRI_SYS: Server-9080-M9S-SN21A6E77-PROD2
-    SEC_SYS: Server-9080-M9S-SN21B8B27-CONT2
 - lpar:
     name: odm04
-    serial: odm44444444
-    PRI_SYS: Server-9080-M9S-SN21A6E77-PROD2
-    SEC_SYS: Server-9080-M9S-SN21B8B27-CONT2
