@@ -2,9 +2,9 @@
 # tasks file for roles/rgm
 
 - name: Recover Global Mirror
-  ansible.builtin.script: 'recoverGM.sh {{item.lpar.name}}' 
+  ansible.builtin.script: 'recoverGM.sh {{item.LPARNAME}}' 
   register: resultado
-  loop: '{{ vars[businessService] }}'
+  loop: '{{ lpar_servers }}'
 
 
 - name: Clean loop output

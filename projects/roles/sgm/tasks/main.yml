@@ -2,9 +2,9 @@
 # tasks file for roles/sgm
 
 - name: Suspend Global Mirror
-  ansible.builtin.script: 'suspendGM.sh {{item.lpar.name}}' 
+  ansible.builtin.script: 'suspendGM.sh {{item.LPARNAME}}' 
   register: resultado
-  loop: '{{ vars[businessService] }}'
+  loop: '{{ lpar_servers }}'
 
 
 - name: Clean loop output
