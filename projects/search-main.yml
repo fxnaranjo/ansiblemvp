@@ -1,5 +1,5 @@
 - hosts: all
-  name: Deactivate the designated group of partitions
+  name: Search the designated group of partitions
   become: no
   gather_facts: no
   vars_files:
