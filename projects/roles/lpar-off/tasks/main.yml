@@ -6,33 +6,17 @@
   include_vars:
     file: credentials.yml
 
-- name: Shutting down {{businessService}} LPARs in DCP
+- name: Shutting down LPARs
   ansible.builtin.script: 'shutdownLPAR.sh {{item.LPARNAME}} {{hmc_user}} {{hmc_hostname}} {{item.PRI_SYS}}' 
-  register: resultadodcp
+  register: resultado
   loop: '{{ lpar_servers }}'
-  when: centro_datos=='DCP'
-
-- name: Shutting down {{businessService}} LPARs in DCA
-  ansible.builtin.script: 'shutdownLPAR.sh {{item.LPARNAME}} {{hmc_user}} {{hmc_hostname}} {{item.SEC_SYS}}' 
-  register: resultadodca
-  loop: '{{ lpar_servers }}'
-  when: centro_datos=='DCA'
 
 - name: Clean loop output
   set_fact:
     clean_out: '{{ clean_out|default([]) + [item.stdout] }}'
   with_items:
-    - '{{ resultadodcp.results }}'
+    - '{{ resultado.results }}'
   no_log: True
-  when: centro_datos=='DCP'
-
-- name: Clean loop output
-  set_fact:
-    clean_out: '{{ clean_out|default([]) + [item.stdout] }}'
-  with_items:
-    - '{{ resultadodca.results }}'
-  no_log: True
-  when: centro_datos=='DCA'
 
 - name: Debug Messages
   debug:
