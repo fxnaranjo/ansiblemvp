@@ -19,6 +19,7 @@ cp /root/ansible/ansiblemvp/projects/lpar-on-main.yml /ansible/dcaproject
 cp /root/ansible/ansiblemvp/projects/csm-main-sgm.yml /ansible/dcaproject
 cp /root/ansible/ansiblemvp/projects/csm-main-rgm.yml /ansible/dcaproject
 cp /root/ansible/ansiblemvp/projects/move-to-dca.yml /ansible/dcaproject
+cp /root/ansible/ansiblemvp/projects/search-main.yml /ansible/dcaproject
 
 cp /root/ansible/ansiblemvp/projects/vault-pass /ansible/dcaproject
 
