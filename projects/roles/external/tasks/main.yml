@@ -6,7 +6,7 @@
     file: credentials.yml
 
 - name: Move {{businessService}} Services to DCA
-  include_tasks: move-dca.yml
+  include_tasks: external.yml
   loop: '{{ vars[businessService] }}'
   loop_control:
     loop_var: item

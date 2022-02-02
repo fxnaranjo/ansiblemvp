@@ -4,8 +4,15 @@
 - name: Suspend Global Mirror
   ansible.builtin.script: 'suspendGM.sh {{item.LPARNAME}}' 
   register: resultado
+  #until: resultado.stdout!='ok'
+  #retries: 30
+  #delay: 25
   loop: '{{ lpar_servers }}'
 
+
+- name: Debug Messages
+  debug:
+    msg: '{{resultado}}'
 
 - name: Clean loop output
   set_fact:
@@ -13,7 +20,7 @@
   with_items:
     - '{{ resultado.results }}'
   no_log: True
-  failed_when: item.stdout_lines[0]=='800'
+  #failed_when: item.stdout_lines[0]=='nook'
 
 - name: Debug Messages
   debug:
