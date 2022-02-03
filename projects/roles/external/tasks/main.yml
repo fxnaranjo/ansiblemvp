@@ -5,8 +5,18 @@
   include_vars:
     file: credentials.yml
 
-- name: Move {{businessService}} Services to DCA
-  include_tasks: external.yml
-  loop: '{{ vars[businessService] }}'
+- name: Execute Metro Mirror
+  include_tasks: metro.yml
+  loop: '{{ lpar_servers }}'
   loop_control:
     loop_var: item
+  when:  session_type=='MM'
+
+
+- name: Execute Global Mirror
+  include_tasks: global.yml
+  when:  session_type=='GM'
+
+
+
+    

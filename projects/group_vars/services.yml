@@ -6,6 +6,8 @@ hmc_hostname: 178.16.221.51
 
 
 
+bus_session: NOMBRE_SESION_FXN
+
 bus:
 - lpar:
     name: bus01

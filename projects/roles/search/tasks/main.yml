@@ -46,3 +46,9 @@
   with_items: '{{lpar}}'
   vars:
     lpar_servers: []
+
+- name: Set Session Name
+  set_stats:
+    data:
+      session_name: "'{{ vars[businessService + '_session'] }}'"
+
