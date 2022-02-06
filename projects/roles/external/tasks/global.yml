@@ -2,9 +2,9 @@
 - name: Suspend Global Mirror {{session_name}}
   ansible.builtin.script: 'suspendGM.sh {{session_name}}'
   register: resultado
-  #until: resultado.stdout_lines[1]=='ok'
-  #retries: 5
-  #delay: 5
+  until: resultado.stdout_lines[0]=='ok'
+  retries: 5
+  delay: 5
 
 
 - name: Debug Messages

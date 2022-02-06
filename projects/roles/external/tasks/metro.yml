@@ -2,9 +2,7 @@
 - name: Suspend Metro Mirror {{item.LPARNAME}}
   ansible.builtin.script: 'suspendGM.sh {{item.LPARNAME}}'
   register: resultado
-  #until: resultado.stdout_lines[1]=='ok'
-  #retries: 5
-  #delay: 5
+  failed_when: resultado.stdout_lines[0]=='ok'
 
 
 - name: Debug Messages

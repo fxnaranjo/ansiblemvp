@@ -4,7 +4,7 @@
 LPAR=$1
 
 if [ "$LPAR" = "odm02" ]; then
-    echo "nook"$1
+    echo "nook"
 else
-   echo "ok"$1
+   echo "ok"
 fi
