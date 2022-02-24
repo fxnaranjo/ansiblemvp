@@ -6,10 +6,6 @@
   register: resultado
   loop: '{{ lpar_servers }}'
 
-- name: Debug Messages
-  debug:
-    msg: '{{resultado}}'
- 
 - name: Clean var
   set_fact:
     lpar_proc: '{{lpar_proc | default(0) | int + item.stdout_lines[0] | int }}'
