@@ -8,7 +8,7 @@
 
 - name: Clean var
   set_fact:
-    lpar_proc: '{{lpar_proc | default(0) | int + item.stdout_lines[0] | int }}'
+    lpar_proc: '{{lpar_proc | default(0) | float + item.stdout_lines[0] | float }}'
   with_items:
     - '{{ resultado.results}}'
   no_log: false
