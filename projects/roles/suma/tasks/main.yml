@@ -1,0 +1,25 @@
+---
+# tasks file for roles/suma
+
+- name: Get LPAR processor
+  ansible.builtin.script: 'suma.sh {{item.LPARNAME}}' 
+  register: resultado
+  loop: '{{ lpar_servers }}'
+
+- name: Debug Messages
+  debug:
+    msg: '{{resultado}}'
+ 
+- name: Clean var
+  set_fact:
+    lpar_proc: '{{lpar_proc | default(0) | int + item.stdout_lines[0] | int }}'
+  with_items:
+    - '{{ resultado.results}}'
+  no_log: false
+ 
+- name: Debug Suma
+  debug:
+    msg: '{{lpar_proc}}'
+
+
+    

@@ -1,0 +1,8 @@
+- hosts: all
+  name: Move Services to DCA
+  become: no
+  gather_facts: no
+  vars_files:
+    - "./group_vars/services.yml"
+  roles:
+   - suma
